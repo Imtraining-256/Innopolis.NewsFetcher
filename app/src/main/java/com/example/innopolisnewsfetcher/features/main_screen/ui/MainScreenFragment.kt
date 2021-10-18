@@ -1,4 +1,4 @@
-package com.example.innopolisnewsfetcher.features.main_screen
+package com.example.innopolisnewsfetcher.features.main_screen.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

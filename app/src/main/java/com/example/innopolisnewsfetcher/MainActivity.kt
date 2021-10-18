@@ -2,7 +2,7 @@ package com.example.innopolisnewsfetcher
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.innopolisnewsfetcher.features.main_screen.MainScreenFragment
+import com.example.innopolisnewsfetcher.features.main_screen.ui.MainScreenFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
