@@ -6,12 +6,12 @@ import com.example.innopolisnewsfetcher.features.main_screen.domain.NewsInteract
 
 class MainScreenViewModel(private val newsInteractor: NewsInteractor) : BaseViewModel<ViewState>() {
 
-    override fun initialViewState(): ViewState {
-        return ViewState(emptyList(), false)
-    }
-
     init {
         processUiEvent(UIEvent.GetCurrentNews)
+    }
+
+    override fun initialViewState(): ViewState {
+        return ViewState(ArticleList = listOf(), errorMessage = null, isLoading = true)
     }
 
     override suspend fun reduce(event: Event, previousState: ViewState): ViewState? {
@@ -19,11 +19,11 @@ class MainScreenViewModel(private val newsInteractor: NewsInteractor) : BaseView
             is UIEvent.GetCurrentNews -> {
                 processDataEvent(DataEvent.OnLoadData)
                 newsInteractor.getNews().fold(
-                    onError = {
-                        processDataEvent(DataEvent.ErrorNewsRequest(it.localizedMessage ?: ""))
-                    },
                     onSuccess = {
                         processDataEvent(DataEvent.SuccessNewsRequest(it))
+                    },
+                    onError = {
+                        processDataEvent(DataEvent.ErrorNewsRequest(it.localizedMessage ?: ""))
                     }
                 )
             }

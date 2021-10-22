@@ -5,7 +5,7 @@ import com.example.innopolisnewsfetcher.features.main_screen.domain.model.NewsDo
 
 data class ViewState(
     val ArticleList: List<NewsDomainModel>,
-    //val errorMessage: String
+    val errorMessage: String?,
     val isLoading: Boolean
 )
 
