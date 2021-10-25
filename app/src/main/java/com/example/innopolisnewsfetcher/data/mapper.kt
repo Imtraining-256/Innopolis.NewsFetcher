@@ -2,7 +2,7 @@ package com.example.innopolisnewsfetcher.data
 
 import com.example.innopolisnewsfetcher.data.api.model.ArticleModel
 import com.example.innopolisnewsfetcher.data.api.model.NewsSourceModel
-import com.example.innopolisnewsfetcher.features.main_screen.domain.model.NewsDomainModel
+import com.example.innopolisnewsfetcher.features.main_screen.domain.model.ArticleDomainModel
 import com.example.innopolisnewsfetcher.features.main_screen.domain.model.NewsSourceDomainModel
 
 fun NewsSourceModel.toDomain(): NewsSourceDomainModel {
@@ -12,8 +12,8 @@ fun NewsSourceModel.toDomain(): NewsSourceDomainModel {
     )
 }
 
-fun ArticleModel.toDomain(): NewsDomainModel {
-    return NewsDomainModel(
+fun ArticleModel.toDomain(): ArticleDomainModel {
+    return ArticleDomainModel(
         source = source.toDomain(),
         author = author,
         title = title,
@@ -21,6 +21,7 @@ fun ArticleModel.toDomain(): NewsDomainModel {
         url = url,
         urlToImage = urlToImage,
         publishedAt = publishedAt,
-        content = content
+        content = content,
+        isBookmarked = false
     )
 }
