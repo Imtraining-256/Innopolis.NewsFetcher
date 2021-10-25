@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.innopolisnewsfetcher.R
-import com.example.innopolisnewsfetcher.features.main_screen.domain.model.NewsDomainModel
+import com.example.innopolisnewsfetcher.features.main_screen.domain.model.ArticleDomainModel
 
-class ArticlesAdapter(private var models: List<NewsDomainModel>) :
-    RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
+class ArticlesAdapter(
+    private var articleModels: List<ArticleDomainModel>,
+    private val onItemClick: (articleModel: ArticleDomainModel) -> Unit
+) : RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -30,15 +32,16 @@ class ArticlesAdapter(private var models: List<NewsDomainModel>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = models[position].title
+        holder.title.text = articleModels[position].title
+        holder.itemView.setOnClickListener { onItemClick(articleModels[position]) }
     }
 
     override fun getItemCount(): Int {
-        return models.size
+        return articleModels.size
     }
 
-    fun updateArticles(newModels: List<NewsDomainModel>) {
-        models = newModels
+    fun updateArticles(newModels: List<ArticleDomainModel>) {
+        articleModels = newModels
         notifyDataSetChanged()
     }
 
