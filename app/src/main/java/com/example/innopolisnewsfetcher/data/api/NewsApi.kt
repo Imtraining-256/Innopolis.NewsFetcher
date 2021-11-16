@@ -7,10 +7,8 @@ import retrofit2.http.Query
 
 interface NewsApi {
     @GET("v2/top-headlines")
-    @Headers("X-Api-Key: 0cf24868af49ecb5a3b6f9dc1a5bf55f")
+    @Headers("X-Api-Key: 2e95f435012741bf9878ebfdae96973b")
     suspend fun getNews(
-//        @Query("q") searchQuery: String = "",
-//        @Query("language") language: String = "ru",
         @Query("country") country: String = "ru"
     ): NewsModel
 }

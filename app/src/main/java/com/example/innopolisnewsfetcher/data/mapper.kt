@@ -15,13 +15,13 @@ fun NewsSourceModel.toDomain(): NewsSourceDomainModel {
 fun ArticleModel.toDomain(): ArticleDomainModel {
     return ArticleDomainModel(
         source = source.toDomain(),
-        author = author,
+        author = author ?: "null",
         title = title,
-        description = description,
+        description = description ?: "null",
         url = url,
-        urlToImage = urlToImage,
+        urlToImage = urlToImage ?: "null",
         publishedAt = publishedAt,
-        content = content,
+        content = content ?: "null",
         isBookmarked = false
     )
 }
