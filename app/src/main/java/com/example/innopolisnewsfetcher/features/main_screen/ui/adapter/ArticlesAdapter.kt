@@ -15,11 +15,7 @@ class ArticlesAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val title: TextView
-
-        init {
-            this.title = view.findViewById<TextView>(R.id.textView)
-        }
+        val title: TextView = view.findViewById<TextView>(R.id.tvArticleTitle)
 
     }
 
